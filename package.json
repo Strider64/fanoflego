@@ -1,0 +1,14 @@
+{
+  "name": "fanoflego",
+  "version": "1.0.0",
+  "description": "When using the Composer Autoloader if you need project files included prior to files autoloaded by any of your dependencies your out of luck. No longer!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "eslint": "^8.34.0"
+  }
+}

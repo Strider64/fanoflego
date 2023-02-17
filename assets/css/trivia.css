@@ -1,0 +1,366 @@
+/*--------------------------------------------------------------
+CSS Reset
+--------------------------------------------------------------*/
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,700;1,500&family=Work+Sans:ital,wght@0,400;0,500;0,700;1,500;1,600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&display=swap");
+html {
+  font-family: sans-serif; }
+
+body {
+  margin: 0; }
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block; }
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline; }
+
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+[hidden],
+template {
+  display: none; }
+
+a {
+  background-color: transparent; }
+
+a:active,
+a:hover {
+  outline: 0; }
+
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+b,
+strong {
+  font-weight: bold; }
+
+dfn {
+  font-style: italic; }
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0; }
+
+mark {
+  background: #ff0;
+  color: #000; }
+
+small {
+  font-size: 80%; }
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+img {
+  border: 0;
+  width: 100%;
+  height: auto; }
+
+svg:not(:root) {
+  overflow: hidden; }
+
+figure {
+  margin: 1em 40px; }
+
+hr {
+  box-sizing: content-box;
+  height: 0; }
+
+pre {
+  overflow: auto; }
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em; }
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0; }
+
+button {
+  overflow: visible; }
+
+button,
+select {
+  text-transform: none; }
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer; }
+
+button[disabled],
+html input[disabled] {
+  cursor: default; }
+
+input {
+  line-height: normal; }
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0; }
+
+input[type="search"] {
+  box-sizing: content-box; }
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em; }
+
+legend {
+  border: 0;
+  padding: 0; }
+
+textarea {
+  overflow: auto; }
+
+optgroup {
+  font-weight: bold; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+td,
+th {
+  padding: 0; }
+
+.site {
+  background-color: #f1f1f1; }
+
+.left-side {
+  float: left;
+  width: 25%;
+  padding: 3% 2% 1%; }
+
+.right-side {
+  float: right;
+  width: 25%;
+  padding: 1%; }
+
+h1, h2, h3, h4, h5, h6, legend, label {
+  font-family: 'Noto Serif JP', serif; }
+
+p, label, textarea {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1.2em;
+  line-height: 1.5;
+  font-weight: normal; }
+
+/* Navigational CSS 9/30/2022 */
+.nav {
+  position: relative;
+  background-color: azure;
+  width: 100%;
+  height: 2.700em;
+  padding-bottom: 0.625em; }
+
+.nav-title {
+  display: none;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1.2em;
+  color: #efefef;
+  padding-left: 0.625em; }
+
+.name-website {
+  display: none;
+  position: absolute;
+  right: 0;
+  bottom: -0.9375em; }
+  .name-website .webtitle {
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 1.8em;
+    color: #b3b3b3; }
+
+.nav > .nav-btn {
+  display: none; }
+
+.nav > .nav-links {
+  display: inline;
+  float: right;
+  font-size: 1.250em;
+  padding-right: 3.125em; }
+
+.nav > .nav-links > a {
+  display: inline-block;
+  line-height: 1.875em;
+  text-decoration: none;
+  text-transform: capitalize;
+  color: #2e2e2e;
+  padding: 0.313em 0.625em; }
+
+.nav > .nav-links > a:hover {
+  color: #aeaeae; }
+
+.nav > #nav-check {
+  display: none; }
+
+/* Navigation CSS Media Query */
+@media screen and (max-width: 77em) {
+  .nav > .nav-btn {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 0; }
+
+  .nav > .nav-btn > label {
+    display: inline-block;
+    cursor: pointer;
+    width: 3.125em;
+    height: 3.125em;
+    padding: 0.875em; }
+
+  .nav > .nav-btn > label > span {
+    display: block;
+    width: 1.563em;
+    height: 0.500em;
+    border-top: 0.125em solid #9a9a9a; }
+
+  .nav > .nav-links {
+    position: absolute;
+    display: block;
+    width: 100%;
+    z-index: 30000;
+    background-color: #fff;
+    height: 0;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 3.125em;
+    left: 0; }
+
+  .nav > .nav-links > a {
+    display: block;
+    width: 100%; }
+
+  .nav > #nav-check:not(:checked) ~ .nav-links {
+    height: 0; }
+
+  .nav > #nav-check:checked ~ .nav-links {
+    height: calc(100vh - 3.125em);
+    overflow-y: auto; } }
+.main {
+  background-color: #fff;
+  padding: 1.250em; }
+
+.sidebar {
+  background-color: #fff;
+  padding: 1.250em; }
+
+/* Approximately the size of an iPad 800px */
+@supports (grid-area: auto) {
+  @media screen and (min-width: 26em) {
+    .site {
+      display: grid;
+      grid-template-columns: 25em 25em;
+      grid-template-areas: "nav nav" "header header" "sidebar main" "footer footer";
+      justify-content: center;
+      width: 50em;
+      margin: 0 auto; }
+
+    .nav {
+      grid-area: nav; }
+
+    .headerStyle {
+      grid-area: header;
+      display: block;
+      width: 100%;
+      max-width: 800px;
+      height: 15.625em;
+      background-repeat: no-repeat;
+      background-size: 50.000em 15.625em;
+      background-position: center center;
+      background-image: url("../images/img-lego-header-800-250.jpg"); }
+
+    .sidebar {
+      grid-area: sidebar; }
+
+    .main {
+      grid-area: main; }
+
+    .footer {
+      grid-area: footer; } } }
+/* Approximately the size of a 1248px large display monitor */
+@supports (grid-area: auto) {
+  @media screen and (min-width: 64em) {
+    .site {
+      display: grid;
+      grid-template-columns: 36em 1fr;
+      grid-template-areas: "header header" "nav nav" "main sidebar" "footer footer";
+      justify-content: center;
+      grid-gap: 1.250em;
+      width: 64em;
+      margin: 0 auto; }
+
+    .nav {
+      grid-area: nav; }
+
+    .displayStatus h4, .displayStatus p {
+      display: block; }
+
+    .headerStyle {
+      grid-area: header;
+      display: block;
+      width: 100%;
+      max-width: 1024px;
+      height: 15.625em;
+      background-repeat: no-repeat;
+      background-size: 64.000em 15.625em;
+      background-image: url("../images/img-lego-header-1024-250.jpg"); }
+
+    .sidebar {
+      grid-area: sidebar; }
+
+    .main {
+      grid-area: main; }
+
+    .footer {
+      grid-area: footer;
+      background-color: azure;
+      text-align: center;
+      margin-top: 1.250em; }
+      .footer p {
+        font-family: 'Nunito Sans', sans-serif;
+        font-size: 1.0em;
+        color: #2e2e2e; } } }
+
+/*# sourceMappingURL=trivia.css.map */

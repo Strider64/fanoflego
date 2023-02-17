@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="4b251634-c747-4a34-85e5-c1e19bc4c133" name="Remote" url="https://www.fanoflego.com">
+        <fileTransfer rootFolder="/fanoflego" accessType="SFTP" host="home329291176.1and1-data.host" port="22" sshConfigId="44d81056-da9d-460a-aa4d-30784b6181f1" sshConfig="u58642303@home329291176.1and1-data.host:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
