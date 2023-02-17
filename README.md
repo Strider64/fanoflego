@@ -1,48 +1,21 @@
-# Composer - Include Files Plugin
+# Website Development & Design
+Created by John Pepp on February 1, 2021
 
-When using the Composer Autoloader if you need project files included prior to files autoloaded by any of your dependencies your out of luck. No longer!
+Updated on August 15, 2021
 
-## Installation
+A responsive website that deals with photography and website development using the latest coding practices.
 
-```bash
-composer require 0.0.0/composer-include-files
-```
+# Website Development and Photography
+I am a photographer, and a website developer that uses no framework or library. I use HTML5, CSS3 and Vanilla JavaScript for the client side using grids/flex to make for a fluid changeable style. I use PHP and Object-Oriented Programming for the server-side, so I can incorporate a fully functional Content Management System (CMS) where the owner or system administrator can change the content with ease. The website will look great on a smartphone, tablet or a PC/Mac computer as I use responsive design. I can also incorporate Ajax (Fetch) that will make for a seamless experience for people using the website. Feel free to check around this website and if interested just use the contact page, and I will get back to you as soon as I can.
 
-## Usage
+# An Active Record Design Pattern
+My Main Website based off a tutorial that I am following, but switching from mysqli to PDO as I feel that is
+a much cleaner way of implementation and easier. I still have ways to go, but once I'm finish my classes should
+be easier to transferred from one project to another project.
 
-Just add the files you need included using `"include_files"` and they will be include prior to any files included by your dependencies.
+# Login and Registration System, Plus Improved Game Play
 
-```json
-// composer.json (project)
-{
-    "extra": {
-        "include_files": [
-            "/path/to/file/you/want/to/include",
-            "/path/to/another/file/you/want/to/include"
-        ]
-    },
-}
-```
-
-## Specific Use Case
-
-A good example of where this is required is when overriding helpers provided by Laravel.
-
-In the past simply modifying `bootstrap/autoload.php` to include helpers was sufficient. However new versions of PHPUnit include the Composer Autoloader prior to executing the PHPUnit bootstrap file. Consequently this method of overriding helpers is no longer viable as it will trigger a fatal error when your bootstrap file is included.
-
-But now we can use *Composer - Include Files Plugin* to have Composer include the files in the necessary order.
-
-```json
-// composer.json (project)
-{
-    "require": {
-        "laravel/framework": "^5.2",
-        "funkjedi/composer-include-files": "^1.0",
-    },
-    "extra": {
-        "include_files": [
-            "app/helpers.php"
-        ]
-    },
-}
-```
+I added a Login and Registration system to the website in order to improve my game play. I also added
+a high scores table that gives the top 5 players and scores for that date, the table also resets everyday
+once a player has played the new day. I improved the CSS, but plan on improving in order to make game
+play better and look better on mobile devices. 
