@@ -2,6 +2,12 @@
 require_once 'assets/config/config.php';
 require_once "vendor/autoload.php";
 
+/*
+ * New Improve Trivia Game
+ * created by John Pepp
+ * on February 17, 2023
+ */
+
 use FanOfLEGO\TriviaDatabaseOBJ;
 
 
