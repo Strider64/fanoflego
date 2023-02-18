@@ -61,6 +61,41 @@ use FanOfLEGO\TriviaDatabaseOBJ;
             background-color: #2e6b31;
         }
 
+        .categoryStyle ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 200px;
+            background-color: #f1f1f1;
+            border: 1px solid #555;
+        }
+
+        .categoryStyle li a {
+            display: block;
+            color: #000;
+            padding: 8px 16px;
+            text-decoration: none;
+            text-align: left;
+        }
+
+        .categoryStyle li {
+            text-align: center;
+            border-bottom: 1px solid #555;
+        }
+
+        .categoryStyle li:last-child {
+            border-bottom: none;
+        }
+
+        .categoryStyle li a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+
+        .categoryStyle li a:hover:not(.active) {
+            background-color: #555;
+            color: white;
+        }
     </style>
 </head>
 <body class="site">
@@ -82,14 +117,10 @@ use FanOfLEGO\TriviaDatabaseOBJ;
                     </div>
                     <div id="buttonContainer"></div>
                 </div>
-
                 <div id="headerStyle" data-user="">
                     <button id="next" class="nextBtn">Next</button>
-
                     <p id="score">Points: 0</p>
                     <p id="percent">100% Correct</p>
-
-
                 </div>
 
             </div>
@@ -97,6 +128,16 @@ use FanOfLEGO\TriviaDatabaseOBJ;
     </div>
 </main>
 <aside class="sidebar">
+    <div id="legoNav" class="categoryStyle">
+        <ul>
+            <li><a class="category" id="lego" href="#">LEGO</a></li>
+            <li><a class="category" id="photography" href="#">Photography</a></li>
+            <li><a class="category" id="space" href="#">Space</a></li>
+            <li><a class="category" id="movie" href="#">Movie</a></li>
+            <li><a class="category" id="sport" href="#">Sports</a></li>
+        </ul>
+    </div>
+
 </aside>
 <?php include_once 'assets/includes/inc.footer.php'; ?>
 <script src="assets/js/trivia.js"></script>

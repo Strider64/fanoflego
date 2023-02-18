@@ -5,8 +5,9 @@ require_once "vendor/autoload.php";
 use FanOfLEGO\TriviaDatabaseOBJ;
 
 $trivia = new TriviaDatabaseOBJ();
+$category = htmlspecialchars($_GET['category']);
 
-$data = $trivia::fetchQuestions();
+$data = $trivia::fetchQuestions($category);
 
 //echo "<pre>" . print_r($data, 1) . "</pre>";
 

@@ -1,5 +1,8 @@
 'use strict';
 (function () {
+    //let quiz = document.querySelector('#quiz');
+    //quiz.style.visibility = 'hidden';
+
     /* Da Question */
     let q = document.querySelector('#question');
     /* Answer Buttons */
@@ -17,7 +20,13 @@
     let score = 0;
     let scoreboard = document.querySelector('#score');
     let gameColor = 'green';
+    let timer = null;
 
+    let lego = document.querySelector('#lego');
+    let photography = document.querySelector('#photography');
+    let space = document.querySelector('#space');
+    let movie = document.querySelector('#movie');
+    let sport = document.querySelector('#sport');
     const points = 100;
 
     const highScore = [{
@@ -32,10 +41,44 @@
     let triviaData = null;
     //let userAnswer = null;
 
-    const nextQuestion = () => {
-        next.style.pointerEvents = "none";
-        next.style.visibility = 'hidden';
+    const startTimer = (dSec) => {
+        let seconds = dSec;
+        const userAnswer = 5, correct = 1;
+        const newClock = d.querySelector('#clock');
 
+        const currentQuestion = d.querySelector('#currentQuestion');
+
+        currentQuestion.textContent = String(index+ 1);
+
+
+        newClock.style['color'] = '#2e2e2e';
+        newClock.textContent = ((seconds < 10) ? `0${seconds}` : seconds);
+        const countdown = () => {
+            if (seconds === 0) {
+                clearTimeout(timer);
+                newClock.style['color'] = 'red';
+                newClock.textContent = "00";
+
+
+                if ((index + 1) === totalRecordss) {
+
+                    console.log('End of Game');
+                }
+
+
+            } else {
+                newClock.textContent = ((seconds < 10) ? `0${seconds}` : seconds);
+                seconds--;
+            }
+        };
+        timer = setInterval(countdown, 1000);
+    };
+
+    const stopTimer = () => {
+        clearInterval(timer);
+    };
+
+    const resetButtons = () => {
         /* Reset Buttons to Original State */
         for (let i = 1; i <= 4; i++) {
             switch (i) {
@@ -63,6 +106,20 @@
                     console.log('Error......');
             }
         }
+    }
+
+    const nextQuestion = () => {
+        next.style.pointerEvents = "none";
+        next.style.visibility = 'hidden';
+        /* Make it so user can't click on already answered question */
+        resetButtons();
+        /* Remove the addEventListener(s) */
+        answer1.removeEventListener('click', pick1, false);
+        answer2.removeEventListener('click', pick2, false);
+        answer3.removeEventListener('click', pick3, false);
+        answer4.removeEventListener('click', pick4, false);
+
+
 
         /* Display the Next Question or end the Game*/
         index++;
@@ -70,6 +127,10 @@
         if (index < totalRecords) {
             displayData(triviaData[index]);
         } else {
+            triviaData = null;
+            choice = null;
+
+
             console.log(`End of Game!`);
         }
     }
@@ -77,39 +138,15 @@
     /* Reset the Trivia Game to Original State */
     const setup = () => {
 
-        /* Remove the addEventListener(s) */
-        answer1.removeEventListener('click', pick1, false);
-        answer2.removeEventListener('click', pick2, false);
-        answer3.removeEventListener('click', pick3, false);
-        answer4.removeEventListener('click', pick4, false);
-
         next.style.pointerEvents = "initial";
         next.style.visibility = 'visible';
+        /* Onward to the next question in the database table */
+        next.addEventListener('click', nextQuestion, false);
         choice = 0; // Making sure user choice is cleared:
 
-        /* Make it so user can't click on already answered question */
-        for (let i = 1; i <= 4; i++) {
-            switch (i) {
-                case 1:
-                    answer1.style.pointerEvents = 'none';
-                    break;
-                case 2:
-                    answer2.style.pointerEvents = 'none';
-                    break;
-                case 3:
-                    answer3.style.pointerEvents = 'none';
-                    break;
-                case 4:
-                    answer4.style.pointerEvents = 'none';
-                    break;
-                default:
-                    console.log('Error......');
-            }
-        }
-
-        /* Onward to the next question in the database table */
-        next.addEventListener('click', nextQuestion, false)
     }
+
+
 
     /* Highlight the HTML buttons after user has 'click' */
     const highlightColor = (result, gameColor) => {
@@ -151,6 +188,25 @@
             highlightColor(correct, gameColor);
             highlightColor(choice, 'red')
             console.log("Wrong!");
+        }
+        /* Make it so user can't click on already answered question */
+        for (let i = 1; i <= 4; i++) {
+            switch (i) {
+                case 1:
+                    answer1.style.pointerEvents = 'none';
+                    break;
+                case 2:
+                    answer2.style.pointerEvents = 'none';
+                    break;
+                case 3:
+                    answer3.style.pointerEvents = 'none';
+                    break;
+                case 4:
+                    answer4.style.pointerEvents = 'none';
+                    break;
+                default:
+                    console.log('Error......');
+            }
         }
         setup();
 
@@ -196,7 +252,7 @@
 
     const displayData = ({ans1, ans2, ans3, ans4, id, question}) => {
 
-
+        resetButtons();
         /* Set the current record (id) to the data-record attribute */
         document.querySelector("#currentQuestion").setAttribute('data-record', id);
         document.querySelector("#currentQuestion").textContent = questionNumber.toString();
@@ -227,7 +283,31 @@
 
     }
 
+    const enableButtons = () => {
+        for (let i = 1; i <= 4; i++) {
+            switch (i) {
+                case 1:
+                    answer1.style.pointerEvents = 'initial';
+                    break;
+                case 2:
+                    answer2.style.pointerEvents = 'initial';
+                    break;
+                case 3:
+                    answer3.style.pointerEvents = 'initial';
+                    break;
+                case 4:
+                    answer4.style.pointerEvents = 'initial';
+                    break;
+                default:
+                    console.log('Error......');
+            }
+        }
+    }
+
     const success = (data) => {
+        index = 0;
+        choice = null;
+        triviaData = null;
         triviaData = data;
         totalRecords = triviaData.length;
         displayData(triviaData[index]);
@@ -241,8 +321,12 @@
         return response.json();
     };
 
-    const fetchTriviaData = () => {
-        fetch("fetchQuestions.php")
+    const fetchTriviaData = (url) => {
+        resetButtons();
+        enableButtons();
+        //quiz.style["visibility"] = 'initial';
+        //document.querySelector('#legoNav').style.visibility = 'hidden';
+        fetch(url)
             .then((response) => handleErrors(response))
             .then(data => success(data))
             .catch((error => error)
@@ -250,6 +334,48 @@
 
     }
 
-    fetchTriviaData();
+    lego.addEventListener('click', (e) => {
+        e.preventDefault();
+        questionNumber = 1;
+        score = 0;
+        scoreboard.textContent = 'Points: ' + score;
+        fetchTriviaData('fetchQuestions.php?category=lego');
+    }, false);
+
+    photography.addEventListener('click', (e) => {
+        e.preventDefault();
+        questionNumber = 1;
+        score = 0;
+        scoreboard.textContent = 'Points: ' + score;
+        triviaData = null;
+        fetchTriviaData('fetchQuestions.php?category=photography');
+    }, false);
+
+    space.addEventListener('click', (e) => {
+        e.preventDefault();
+        questionNumber = 1;
+        score = 0;
+        scoreboard.textContent = 'Points: ' + score;
+        fetchTriviaData('fetchQuestions.php?category=space');
+    }, false);
+
+    movie.addEventListener('click', (e) => {
+        e.preventDefault();
+        questionNumber = 1;
+        score = 0;
+        scoreboard.textContent = 'Points: ' + score;
+        fetchTriviaData('fetchQuestions.php?category=movie');
+    }, false);
+
+    sport.addEventListener('click', (e) => {
+        e.preventDefault();
+        questionNumber = 1;
+        score = 0;
+        scoreboard.textContent = 'Points: ' + score;
+        fetchTriviaData('fetchQuestions.php?category=sport');
+    }, false);
+
+
+
 
 })();
