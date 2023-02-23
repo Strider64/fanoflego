@@ -34,6 +34,10 @@ p, label, textarea {
   font-weight: normal;
 }
 
+.answerStyle {
+  color: #000;
+}
+
 /* Accessibility */
 #skip a {
   position: absolute;
@@ -920,7 +924,7 @@ span.psw {
       margin-top: 0.625em;
 
       label, h2 {
-        color: #fff;
+        color: #000;
       }
 
       .remote {
@@ -932,7 +936,7 @@ span.psw {
 
         #ePrev, #eNext {
           text-decoration: none;
-          color: #fff;
+          color: #2E2E2E;
         }
       }
 

@@ -3,7 +3,7 @@
 require_once 'assets/config/config.php';
 require_once "vendor/autoload.php";
 
-use FanOfLEGO\Trivia;
+use FanOfLEGO\TriviaDatabaseOBJ;
 use FanOfLEGO\Login;
 $user = new Login();
 if (Login::adminCheck()) {
@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
     $quiz = $_POST['quiz'];
     //echo "<pre>" .print_r($quiz, 1) . "</pre>";
     //die();
-    $trivia = new Trivia($quiz);
+    $trivia = new TriviaDatabaseOBJ($quiz);
     $result = $trivia->create();
 }
 
@@ -77,22 +77,22 @@ if (isset($_POST['submit'])) {
                       autofocus></textarea>
         </div>
         <div class="answer1">
-            <label class="answer_one_label" for="addAnswer1">Answer 1</label>
-            <input class="answer_one_input" id="addAnswer1" type="text" name="quiz[answer1]" value="" tabindex="4">
+            <label class="answer_one_label answerStyle" for="addAnswer1">Answer 1</label>
+            <input class="answer_one_input" id="addAnswer1" type="text" name="quiz[ans1]" value="" tabindex="4">
         </div>
         <div class="answer2">
-            <label class="answer_two_label" for="addAnswer2">Answer 2</label>
-            <input class="answer_two_input" id="addAnswer2" type="text" name="quiz[answer2]" value="" tabindex="5">
+            <label class="answer_two_label answerStyle" for="addAnswer2">Answer 2</label>
+            <input class="answer_two_input" id="addAnswer2" type="text" name="quiz[ans2]" value="" tabindex="5">
         </div>
 
         <div class="answer3">
-            <label class="answer_three_label" for="addAnswer3">Answer 3</label>
-            <input class="answer_three_input" id="addAnswer3" type="text" name="quiz[answer3]" value="" tabindex="6">
+            <label class="answer_three_label answerStyle" for="addAnswer3">Answer 3</label>
+            <input class="answer_three_input" id="addAnswer3" type="text" name="quiz[ans3]" value="" tabindex="6">
         </div>
 
         <div class="answer4">
-            <label class="answer_four_label" for="addAnswer4">Answer 4</label>
-            <input class="answer_four_input" id="addAnswer4" type="text" name="quiz[answer4]" value="" tabindex="7">
+            <label class="answer_four_label answerStyle" for="addAnswer4">Answer 4</label>
+            <input class="answer_four_input" id="addAnswer4" type="text" name="quiz[ans4]" value="" tabindex="7">
         </div>
 
         <div class="correct">

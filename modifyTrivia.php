@@ -20,7 +20,7 @@ if (!$user::adminCheck()) {
           content="width=device-width, user-scalable=yes, initial-scale=1.0">
     <title>Modify Trivia</title>
     <link rel="stylesheet" media="all" href="assets/css/game.css">
-    <script src="assets/js/game.js" defer></script>
+
 </head>
 <body class="site">
 <header class="headerStyle">
@@ -63,7 +63,7 @@ if (!$user::adminCheck()) {
         </div>
         <div class="answer1">
             <label class="answer_one_label" for="addAnswer1">Answer 1</label>
-            <input id="addAnswer1" class="answer_one_input" type="text" name="answer1" value="" tabindex="3">
+            <input id="addAnswer1" class="answer_one_input" type="text" name="quiz[ans1]" value="" tabindex="3">
         </div>
         <div class="answer2">
             <label class="answer_two_label" for="addAnswer2">Answer 2</label>
@@ -99,6 +99,7 @@ if (!$user::adminCheck()) {
 
 </aside>
 <?php include_once 'assets/includes/inc.footer.php'; ?>
+
 <script type="text/javascript" src="assets/js/editTrivia.js"></script>
 </body>
 </html>

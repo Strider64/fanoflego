@@ -149,6 +149,93 @@ p, label, textarea {
   padding: 1.250em;
 }
 
+.disable {
+  pointer-events: none;
+}
+
+/* Trivia Game Styling */
+.triviaContainer {
+
+  /* Answer Buttons */
+  .buttonStyle {
+    display: block;
+    width: 100%;
+    height: 3.125em;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: #F5F5F5;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.2em;
+    color: #2E2E2E;
+    text-transform: capitalize;
+    text-align: left;
+    padding-left: 0.625em;
+    margin: 0.625em auto;
+    &:hover {
+      background-color: #00b28d;
+      color: #fff;
+    }
+  }
+  #next {
+    float: right;
+    outline: none;
+    color: #fff;
+    border: none;
+    background-color: #4CAF50;
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
+    width: 6.25em;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.2em;
+    text-transform: capitalize;
+    text-decoration: none;
+    padding: 0.313em;
+    margin: 0.625em 0;
+    transition: background-color .5s;
+    &:hover {
+      background-color: #2e6b31;
+    }
+  }
+
+} // End of Trivia CSS
+
+/* Trivia Game Sidebar Styling */
+.vertical-nav {
+  background-color: aliceblue;
+  width: 100%;
+  height: auto;
+  padding-left: 0.563em;
+  padding-top: 0.625em;
+  padding-bottom: 1.250em;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+  h1 {
+    margin-bottom: 0.625em;
+    margin-left: 0.563em;
+    color: #2E2E2E;
+  }
+
+  ul {
+    list-style: none;
+    li a {
+      text-decoration: none;
+      display: block;
+      width: 15.625em;
+      background-color: white;
+      color: black;
+      box-shadow: 2px 2px 2px cadetblue;
+      border-radius: 0.500em;
+      margin: 0.313em;
+      padding: 0.625em;
+      &:hover {
+        background-color: rgb(142, 175, 237);
+        color: white;
+        transform: scale(1.1, 1.5);
+      }
+    }
+  }
+}
+
 /* Approximately the size of an iPad 800px */
 @supports (grid-area: auto) {
   @media screen and (min-width: 26em) {

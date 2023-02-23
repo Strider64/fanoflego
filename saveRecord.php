@@ -4,7 +4,7 @@ require_once 'assets/config/config.php';
 require_once "vendor/autoload.php";
 
 use FanOfLEGO\Login;
-use FanOfLEGO\Trivia;
+use FanOfLEGO\TriviaDatabaseOBJ;
 
 $user = new Login();
 if (Login::adminCheck()) {
@@ -17,7 +17,7 @@ if (!$user::adminCheck()) {
 
 $data = json_decode(file_get_contents('php://input'), true);
 
-$trivia = new Trivia($data);
+$trivia = new TriviaDatabaseOBJ($data);
 $result = $trivia->update();
 
 if ($result) {

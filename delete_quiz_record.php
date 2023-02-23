@@ -2,7 +2,7 @@
 require_once "assets/config/config.php";
 require_once "vendor/autoload.php";
 
-use FanOfLEGO\Trivia;
+use FanOfLEGO\TriviaDatabaseOBJ;
 use FanOfLEGO\Login;
 
 $user = new Login();
@@ -14,12 +14,12 @@ if (!$user::adminCheck()) {
     exit();
 }
 
-$delete = new Trivia();
+$delete = new TriviaDatabaseOBJ();
 
 $id = $_GET['id'] ?? null;
 
 if (!empty($id)) {
-    $data = Trivia::fetch_by_id($id);
+    $data = TriviaDatabaseOBJ::fetch_by_id($id);
 
     /*
      * Delete the record from the Database Table

@@ -4,7 +4,7 @@ require_once 'assets/config/config.php';
 require_once "vendor/autoload.php";
 
 
-use FanOfLEGO\Trivia;
+use FanOfLEGO\TriviaDatabaseOBJ;
 use FanOfLEGO\Login;
 
 $user = new Login();
@@ -14,7 +14,7 @@ if (!$user::adminCheck()) {
 }
 
 
-$data = Trivia::fetch_all_categories();
+$data = TriviaDatabaseOBJ::fetch_all_categories();
 
 /* Makes it, so we don't have to decode the json coming from javascript */
 header('Content-type: application/json');

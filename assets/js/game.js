@@ -397,7 +397,7 @@
 
     /* Success function utilizing FETCH */
     const quizUISuccess = (parsedData) => {
-        console.log('trivia data', parsedData);
+        console.log('trivia data', parsedData.answers);
         mainGame.style.display = 'grid';
         d.getElementById('content').scrollIntoView();
 

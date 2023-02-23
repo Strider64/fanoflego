@@ -1,8 +1,9 @@
 'use strict';
+
 (function () {
     //let quiz = document.querySelector('#quiz');
     //quiz.style.visibility = 'hidden';
-
+    let category = document.querySelectorAll('a.category');
     /* Da Question */
     let q = document.querySelector('#question');
     /* Answer Buttons */
@@ -17,7 +18,11 @@
     next.style.visibility = 'hidden';
 
     let name = 'Guest Player';
+    const points = 100;
+    let percent = document.querySelector('#percent');
     let score = 0;
+    let total = 1;
+    let answeredRight = 0;
     let scoreboard = document.querySelector('#score');
     let gameColor = 'green';
     let timer = null;
@@ -27,7 +32,16 @@
     let space = document.querySelector('#space');
     let movie = document.querySelector('#movie');
     let sport = document.querySelector('#sport');
-    const points = 100;
+
+    let blueBackground = "#8eafed";
+    let whiteColor = "#ffffff"
+
+    /* Calculate Percent */
+    const calcPercent = (correct, total) => {
+        let average = (correct / total) * 100;
+        percent.textContent = average.toFixed(0) + "% Correct";
+    };
+
 
     const highScore = [{
         'Name': name,
@@ -84,23 +98,23 @@
             switch (i) {
                 case 1:
                     answer1.style.pointerEvents = 'initial';
-                    answer1.style.backgroundColor = '#F5F5F5';
-                    answer1.style.color = '#2E2E2E';
+                    answer1.style.backgroundColor = blueBackground;
+                    answer1.style.color = whiteColor;
                     break;
                 case 2:
                     answer2.style.pointerEvents = 'initial';
-                    answer2.style.backgroundColor = '#F5F5F5';
-                    answer2.style.color = '#2E2E2E';
+                    answer2.style.backgroundColor = blueBackground;
+                    answer2.style.color = whiteColor;
                     break;
                 case 3:
                     answer3.style.pointerEvents = 'initial';
-                    answer3.style.backgroundColor = '#F5F5F5';
-                    answer3.style.color = '#2E2E2E';
+                    answer3.style.backgroundColor = blueBackground;
+                    answer3.style.color = whiteColor;
                     break;
                 case 4:
                     answer4.style.pointerEvents = 'initial';
-                    answer4.style.backgroundColor = '#F5F5F5';
-                    answer4.style.color = '#2E2E2E';
+                    answer4.style.backgroundColor = blueBackground;
+                    answer4.style.color = whiteColor;
                     break;
                 default:
                     console.log('Error......');
@@ -124,12 +138,17 @@
         /* Display the Next Question or end the Game*/
         index++;
         questionNumber++;
+        total = questionNumber;
+
         if (index < totalRecords) {
             displayData(triviaData[index]);
         } else {
             triviaData = null;
             choice = null;
-
+            /* Remove to disable class that prevents menu to be clicked */
+            for (let elem of category) {
+                elem.classList.remove('disable');
+            }
 
             console.log(`End of Game!`);
         }
@@ -175,10 +194,30 @@
 
     /* Compare the user's answer to the correct answer that came from the database table */
     const compareAnswers = ({correct}) => {
+
+
         //console.log('data', data);
         console.log(`The user picked ${choice} and the correct answer is ${correct}.`);
         if (correct === choice) {
+            if (correct === 1) {
+                ans1.textContent =  ans1.textContent.substring(2);
+                ans1.textContent = "📸 " + ans1.textContent;
+            }
+            if (correct === 2) {
+                ans2.textContent =  ans2.textContent.substring(2);
+                ans2.textContent = "📸 " + ans2.textContent;
+            }
+            if (correct === 3) {
+                ans3.textContent =  ans3.textContent.substring(2);
+                ans3.textContent = "📸 " + ans3.textContent;
+            }
+            if (correct === 4) {
+                ans4.textContent = ans4.textContent.substring(2);
+                ans4.textContent = "📸 " + ans4.textContent;
+            }
+            console.log('answer 1', ans1.textContent);
             score += points;
+            answeredRight++;
             scoreboard.textContent = 'Points: ' + score;
             highlightColor(choice, gameColor);
             console.log(`You answer is correct ${choice}`);
@@ -189,6 +228,9 @@
             highlightColor(choice, 'red')
             console.log("Wrong!");
         }
+
+        calcPercent(answeredRight, total);
+
         /* Make it so user can't click on already answered question */
         for (let i = 1; i <= 4; i++) {
             switch (i) {
@@ -251,7 +293,10 @@
     }
 
     const displayData = ({ans1, ans2, ans3, ans4, id, question}) => {
-
+        /* Add to disable class that prevents menu to be clicked */
+        for (let elem of category) {
+            elem.classList.add('disable');
+        }
         resetButtons();
         /* Set the current record (id) to the data-record attribute */
         document.querySelector("#currentQuestion").setAttribute('data-record', id);
@@ -259,10 +304,6 @@
 
         /* Display the questions and answers on the page */
         q["textContent"] = question;
-        answer1["textContent"] = ans1;
-        answer2["textContent"] = ans2;
-        answer3["textContent"] = ans3;
-        answer4["textContent"] = ans4;
 
         /* Add Listener to Answer 1 */
         answer1.addEventListener('click', pick1,false);
@@ -270,15 +311,23 @@
         /* Add Listener to Answer 2 */
         answer2.addEventListener('click', pick2,false);
 
+        answer1["textContent"] = "📷 " + ans1; // Set Possible Answers:
+        answer2["textContent"] = "📷 " + ans2; // Set Possible Answers:
+
         /* There doesn't have to be 3 or 4 answers in the Trivia Game */
         if (ans3 !== "") {
             /* Add Listener to Answer 3 */
             answer3.addEventListener('click', pick3,false);
+            answer3["textContent"] = "📷 " + ans3; // Set Possible Answers:
+        } else if (ans3 === "") {
+            answer3["textContent"] = ""; // Set to null if no possible answer:
         }
-
         if (ans4 !== "") {
             /* Add Listener to Answer 4 */
-            answer4.addEventListener('click', pick4,false);
+            answer4.addEventListener('click', pick4, false);
+            answer4["textContent"] = "📷 " + ans4; // Set Possible Answers:
+        } else if (ans4 === "") {
+            answer4["textContent"] = ""; // Set to null if no possible answer:
         }
 
     }
@@ -305,6 +354,9 @@
     }
 
     const success = (data) => {
+        answeredRight = 0;
+        total = 1;
+        percent.textContent = "100% Correct";
         index = 0;
         choice = null;
         triviaData = null;

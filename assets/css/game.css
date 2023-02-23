@@ -187,6 +187,9 @@ p, label, textarea {
   line-height: 1.5;
   font-weight: normal; }
 
+.answerStyle {
+  color: #000; }
+
 /* Accessibility */
 #skip a {
   position: absolute;
@@ -915,7 +918,7 @@ span.psw {
       padding: 1.250em;
       margin-top: 0.625em; }
       .checkStyle label, .checkStyle h2 {
-        color: #fff; }
+        color: #000; }
       .checkStyle .remote {
         grid-area: remote;
         display: flex;
@@ -924,7 +927,7 @@ span.psw {
         align-items: center; }
         .checkStyle .remote #ePrev, .checkStyle .remote #eNext {
           text-decoration: none;
-          color: #fff; }
+          color: #2E2E2E; }
       .checkStyle .select-hidden {
         grid-area: select-hidden; }
       .checkStyle .select-category {

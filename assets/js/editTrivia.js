@@ -44,10 +44,10 @@ const insertData = (data) => {
 
     hidden.value = record.hidden;
     question.value = record.question;
-    answer1.value = record.answer1;
-    answer2.value = record.answer2;
-    answer3.value = record.answer3;
-    answer4.value = record.answer4;
+    answer1.value = record.ans1;
+    answer2.value = record.ans2;
+    answer3.value = record.ans3;
+    answer4.value = record.ans4;
     category.value = record.category;
 
 
@@ -159,10 +159,10 @@ const serializeArray = function () {
         user_id: parseInt(record.user_id),
         hidden: hidden.value,
         question: question.value,
-        answer1: answer1.value,
-        answer2: answer2.value,
-        answer3: answer3.value,
-        answer4: answer4.value,
+        ans1: answer1.value,
+        ans2: answer2.value,
+        ans3: answer3.value,
+        ans4: answer4.value,
         correct: parseInt(correct.value),
         category: category.value
     };
@@ -172,10 +172,10 @@ const serializeArray = function () {
     record.user_id = user_id.value;
     record.hidden = hidden.value;
     record.question = question.value;
-    record.answer1 = answer1.value;
-    record.answer2 = answer2.value;
-    record.answer3 = answer3.value;
-    record.answer4 = answer4.value;
+    record.ans1 = answer1.value;
+    record.ans2 = answer2.value;
+    record.ans3 = answer3.value;
+    record.ans4 = answer4.value;
     record.correct = correct.value;
     record.category = category.value;
     insertData(record);
