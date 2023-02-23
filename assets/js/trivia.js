@@ -74,7 +74,7 @@
                 newClock.textContent = "00";
 
 
-                if ((index + 1) === totalRecordss) {
+                if ((index + 1) === totalRecords) {
 
                     console.log('End of Game');
                 }
@@ -192,41 +192,64 @@
         }
     }
 
+    const wrongFCN = (wrong) => {
+        if (wrong === 1) {
+            answer1.textContent =  answer1.textContent.substring(2);
+            answer1.textContent = "😥 " + answer1.textContent;
+        }
+        if (wrong === 2) {
+            answer2.textContent =  answer2.textContent.substring(2);
+            answer2.textContent = "😥 " + answer2.textContent;
+        }
+        if (wrong === 3) {
+            answer3.textContent =  answer3.textContent.substring(2);
+            answer3.textContent = "😥 " + answer3.textContent;
+        }
+        if (wrong === 4) {
+            answer4.textContent = answer4.textContent.substring(2);
+            answer4.textContent = "😥 " + answer4.textContent;
+        }
+    }
+
+    const rightFCN = (correct) => {
+        if (correct === 1) {
+            answer1.textContent =  answer1.textContent.substring(2);
+            answer1.textContent = "📸 " + answer1.textContent;
+        }
+        if (correct === 2) {
+            answer2.textContent =  answer2.textContent.substring(2);
+            answer2.textContent = "📸 " + answer2.textContent;
+        }
+        if (correct === 3) {
+            answer3.textContent =  answer3.textContent.substring(2);
+            answer3.textContent = "📸 " + answer3.textContent;
+        }
+        if (correct === 4) {
+            answer4.textContent = answer4.textContent.substring(2);
+            answer4.textContent = "📸 " + answer4.textContent;
+        }
+    }
+
     /* Compare the user's answer to the correct answer that came from the database table */
     const compareAnswers = ({correct}) => {
-
-
         //console.log('data', data);
-        console.log(`The user picked ${choice} and the correct answer is ${correct}.`);
+        //console.log(`The user picked ${choice} and the correct answer is ${correct}.`);
         if (correct === choice) {
-            if (correct === 1) {
-                ans1.textContent =  ans1.textContent.substring(2);
-                ans1.textContent = "📸 " + ans1.textContent;
-            }
-            if (correct === 2) {
-                ans2.textContent =  ans2.textContent.substring(2);
-                ans2.textContent = "📸 " + ans2.textContent;
-            }
-            if (correct === 3) {
-                ans3.textContent =  ans3.textContent.substring(2);
-                ans3.textContent = "📸 " + ans3.textContent;
-            }
-            if (correct === 4) {
-                ans4.textContent = ans4.textContent.substring(2);
-                ans4.textContent = "📸 " + ans4.textContent;
-            }
-            console.log('answer 1', ans1.textContent);
+            rightFCN(correct);
+            //console.log('answer 1', ans1.textContent);
             score += points;
             answeredRight++;
             scoreboard.textContent = 'Points: ' + score;
             highlightColor(choice, gameColor);
-            console.log(`You answer is correct ${choice}`);
+            //console.log(`You answer is correct ${choice}`);
         } else {
             score -= points;
             scoreboard.textContent = 'Points: ' + score;
             highlightColor(correct, gameColor);
+            wrongFCN(choice);
+            rightFCN(correct);
             highlightColor(choice, 'red')
-            console.log("Wrong!");
+            //console.log("Wrong!");
         }
 
         calcPercent(answeredRight, total);
