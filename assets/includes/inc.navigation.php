@@ -14,27 +14,28 @@
 
         if ($_SESSION['securityLevel']) {
             echo '<a href="newQuestions.php"> Trivia Upkeep</a>';
+            echo '<a href="createGallery.php">Insert Images</a>';
         }
         if (!isset($_SESSION['id'])) {
             echo '<a href="index.php">Home</a>';
-            echo '<a href="#">Gallery</a>';
+            echo '<a href="gallery.php">Gallery</a>';
 
         } else {
             echo '<a href="members.php">Members</a>';
             echo '<a href="newQuestions.php">New Questions</a>';
-            echo '<a href="#">Gallery</a>';
+            echo '<a href="gallery.php">Gallery</a>';
         }
         ?>
 
         <a href="trivia.php">Trivia Beta</a>
-        <a href="game.php">Trivia</a>
         <?php
         if (!$_SESSION['loggedIn']) {
             echo '<a href="register.php">Register</a>';
             echo '<a href="policy.php">Policy</a>';
+            echo '<a href="contact.php">Contact</a>';
         }
         ?>
-        <a href="contact.php">Contact</a>
+
         <?php
         if (isset($_SESSION['id'])) {
             echo '<a href="logout.php">Logout</a>';

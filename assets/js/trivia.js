@@ -1,6 +1,8 @@
 'use strict';
 
 (function () {
+    let quiz = document.querySelector('#quiz');
+    let opening = document.querySelector('#openingScreen');
     //let quiz = document.querySelector('#quiz');
     //quiz.style.visibility = 'hidden';
     let category = document.querySelectorAll('a.category');
@@ -17,6 +19,7 @@
     next.style.pointerEvents = 'none';
     next.style.visibility = 'hidden';
 
+    let dsec = 25; // Seconds
     let name = 'Guest Player';
     const points = 100;
     let percent = document.querySelector('#percent');
@@ -54,25 +57,39 @@
     let totalRecords = 0;
     let triviaData = null;
     //let userAnswer = null;
-
+    /*
+     * Create and Display High Score Table
+     */
+    const displayHSTable = (info) => {
+        highScoresDisplay.style.display = "block";
+        info.forEach((value, index) => {
+            let anchor = document.querySelector('.anchor');
+            let trElement = anchor.appendChild(d.createElement('tr'));
+            if ((index + 1) % 2 === 0) {
+                trElement.className = 'active-row';
+            }
+            let tdPlayer = trElement.appendChild(d.createElement('td'));
+            let tdPoints = trElement.appendChild(d.createElement('td'));
+            tdPlayer.appendChild(document.createTextNode(value.player));
+            tdPoints.appendChild(document.createTextNode(value.score));
+        });
+    }
     const startTimer = (dSec) => {
         let seconds = dSec;
+        console.log('seconds', seconds);
         const userAnswer = 5, correct = 1;
-        const newClock = d.querySelector('#clock');
-
-        const currentQuestion = d.querySelector('#currentQuestion');
-
-        currentQuestion.textContent = String(index+ 1);
+        const newClock = document.querySelector('#clock');
 
 
-        newClock.style['color'] = '#2e2e2e';
+
+        newClock.style['color'] = '#4CAF50';
         newClock.textContent = ((seconds < 10) ? `0${seconds}` : seconds);
         const countdown = () => {
             if (seconds === 0) {
                 clearTimeout(timer);
                 newClock.style['color'] = 'red';
                 newClock.textContent = "00";
-
+                compareAnswers(5);
 
                 if ((index + 1) === totalRecords) {
 
@@ -123,6 +140,7 @@
     }
 
     const nextQuestion = () => {
+        startTimer(dsec);
         next.style.pointerEvents = "none";
         next.style.visibility = 'hidden';
         /* Make it so user can't click on already answered question */
@@ -143,13 +161,14 @@
         if (index < totalRecords) {
             displayData(triviaData[index]);
         } else {
+            quiz.style.display = "none";
+            opening.style.display = "block";
             triviaData = null;
             choice = null;
             /* Remove to disable class that prevents menu to be clicked */
             for (let elem of category) {
                 elem.classList.remove('disable');
             }
-
             console.log(`End of Game!`);
         }
     }
@@ -232,6 +251,7 @@
 
     /* Compare the user's answer to the correct answer that came from the database table */
     const compareAnswers = ({correct}) => {
+        stopTimer();
         //console.log('data', data);
         //console.log(`The user picked ${choice} and the correct answer is ${correct}.`);
         if (correct === choice) {
@@ -243,7 +263,7 @@
             highlightColor(choice, gameColor);
             //console.log(`You answer is correct ${choice}`);
         } else {
-            score -= points;
+            score -= 25;
             scoreboard.textContent = 'Points: ' + score;
             highlightColor(correct, gameColor);
             wrongFCN(choice);
@@ -316,6 +336,8 @@
     }
 
     const displayData = ({ans1, ans2, ans3, ans4, id, question}) => {
+        quiz.style.display = "block";
+        opening.style.display = "none";
         /* Add to disable class that prevents menu to be clicked */
         for (let elem of category) {
             elem.classList.add('disable');
@@ -397,6 +419,8 @@
     };
 
     const fetchTriviaData = (url) => {
+        startTimer(dsec);
+        console.log("Hmm");
         resetButtons();
         enableButtons();
         //quiz.style["visibility"] = 'initial';

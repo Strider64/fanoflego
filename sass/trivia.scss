@@ -153,6 +153,10 @@ p, label, textarea {
   pointer-events: none;
 }
 
+#quiz {
+  display: none;
+}
+
 /* Trivia Game Styling */
 .triviaContainer {
 
@@ -202,10 +206,8 @@ p, label, textarea {
 /* Trivia Game Sidebar Styling */
 .vertical-nav {
   background-color: aliceblue;
-  width: 100%;
   height: auto;
   padding-left: 0.563em;
-  padding-top: 0.625em;
   padding-bottom: 1.250em;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 
@@ -290,7 +292,6 @@ p, label, textarea {
       display: grid;
       grid-template-columns: 36em 1fr;
       grid-template-areas:
-				"header header"
                 "nav nav"
                 "main sidebar"
 				"footer footer";

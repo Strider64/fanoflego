@@ -289,6 +289,9 @@ p, label, textarea {
 .disable {
   pointer-events: none; }
 
+#quiz {
+  display: none; }
+
 /* Trivia Game Styling */
 .triviaContainer {
   /* Answer Buttons */ }
@@ -331,10 +334,8 @@ p, label, textarea {
 /* Trivia Game Sidebar Styling */
 .vertical-nav {
   background-color: aliceblue;
-  width: 100%;
   height: auto;
   padding-left: 0.563em;
-  padding-top: 0.625em;
   padding-bottom: 1.250em;
   font-family: Verdana, Geneva, Tahoma, sans-serif; }
   .vertical-nav h1 {
@@ -397,7 +398,7 @@ p, label, textarea {
     .site {
       display: grid;
       grid-template-columns: 36em 1fr;
-      grid-template-areas: "header header" "nav nav" "main sidebar" "footer footer";
+      grid-template-areas: "nav nav" "main sidebar" "footer footer";
       justify-content: center;
       grid-gap: 1.250em;
       width: 64em;

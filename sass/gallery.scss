@@ -1,0 +1,623 @@
+@import "partials/_reset";
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,700;1,500&family=Work+Sans:ital,wght@0,400;0,500;0,700;1,500;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+@import "partials/contact";
+/* Accessibility */
+#skip a {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+
+  &:focus {
+    position: static;
+    width: auto;
+    height: auto;
+  }
+}
+
+.home_sidebar {
+  padding: 1.250em;
+}
+#gallery_category {
+  font-family: 'Rubik', sans-serif;
+  color: darkgray;
+}
+
+img {
+  pointer-events: none;
+}
+
+/* Select Styling */
+.select-css {
+  display: block;
+  font-size: 1.0em;
+
+  font-weight: 400;
+  color: darkgray;
+  line-height: 1.3;
+
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+
+  box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+
+  appearance: none;
+  background-color: #fff;
+
+  background-repeat: no-repeat, repeat;
+  background-position: right .7em top 50%, 0 0;
+  background-size: .65em auto, 100%;
+  margin-bottom: 1.250em;
+}
+.select-css::-ms-expand {
+  display: none;
+}
+.select-css:hover {
+  border-color: #888;
+}
+.select-css:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 1px 3px rgba(darkgray, .7);
+  box-shadow: 0 0 0 3px -moz-mac-focusring;
+  color: darkgray;
+  outline: none;
+}
+.select-css option {
+  font-weight:normal;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.563em;
+  height: 1.563em;
+  background-color: darkgray;
+  margin: 0.625em 0.625em 0;
+}
+
+.links:hover {
+  cursor: pointer;
+  background-color: darken(darkgray, 10%);
+}
+
+.linkStyle {
+  font-family: Arial, sans-serif;
+  color: #fff;
+}
+
+.lightbox {
+  display: none;
+  cursor: pointer;
+}
+
+figure {
+  max-width: 21.75em;
+  margin: auto;
+}
+
+.cards {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0.625em;
+  a {
+    display: block;
+    text-decoration: none;
+  }
+}
+.caption {
+  padding: 1em;
+  background: hsla(246, 40%, 30%, .6);
+  color: white;
+  font-size: 1.2em;
+  transition: all .4s;
+}
+
+a:focus .caption,
+a:hover .caption {
+  background: hsla(246, 40%, 30%, 1);
+}
+
+.caption-title {
+  margin: 0;
+  font-size: 1.0em;
+  line-height: 1.1em;
+}
+
+
+
+h1, h2, h3, h4, h5, h6, legend, label {
+  font-family: 'Work Sans', sans-serif;
+}
+
+p, label, textarea {
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.2em;
+  line-height: 1.5;
+  font-weight: normal;
+}
+
+.title {
+  background-color: rgba(#000, 0.6);
+}
+
+.pictureHeading {
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.0em;
+  line-height: 1.0;
+}
+
+/* lightbox */
+.lightbox {
+  margin-top: 1.250em;
+}
+.hideContent {
+  display: none;
+}
+.container {
+  margin-top: 1.250em;
+}
+.gallery-item .title {
+  display: block;
+  color: #e6e6e6;
+  text-align: center;
+  margin-bottom: 0.625em;
+}
+
+.galleryExif {
+  display: block;
+  width: 100%;
+  font-size: 1.0em;
+  text-align: center;
+  line-height: 3.125em;
+  background-color: #21759b;
+  color: #fff;
+  margin: 0;
+}
+
+.site {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.exifInfo {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.8em;
+}
+
+/* Navigational CSS 9/30/2022 */
+.nav {
+  position: relative;
+  width: 100%;
+  height: 2.700em;
+  border-bottom: 1px solid darken(#e6e6e6, 30%);;
+  padding-bottom: 0.625em;
+}
+
+.nav-title {
+  display: none;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1.2em;
+  color: #efefef;
+  padding-left: 0.625em;
+}
+
+.name-website {
+  display: none;
+  position: absolute;
+  right: 0;
+  bottom: -0.9375em;
+  .webtitle {
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 1.8em;
+    color: darken(#e6e6e6, 20%);
+  }
+}
+.nav > .nav-btn {
+  display: none;
+}
+
+.nav > .nav-links {
+  display: inline;
+  float: right;
+  font-size: 1.250em;
+  padding-right: 3.125em;
+}
+
+.nav > .nav-links > a {
+  display: inline-block;
+  line-height: 1.875em;
+  text-decoration: none;
+  text-transform: capitalize;
+  color: darken(#e6e6e6, 20%);
+  padding: 0.313em 0.625em;
+}
+
+.nav > .nav-links > a:hover {
+  color: darken(#e6e6e6, 60%);
+}
+
+.nav > #nav-check {
+  display: none;
+}
+
+/* Navigation CSS Media Query */
+@media screen and (max-width: 77em) {
+  .nav > .nav-btn {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+  }
+  .nav > .nav-btn > label {
+    display: inline-block;
+    cursor: pointer;
+    width: 3.125em;
+    height: 3.125em;
+    padding: 0.875em;
+  }
+
+  .nav > .nav-btn > label > span {
+    display: block;
+    width: 1.563em;
+    height: 0.500em;
+    border-top: 0.125em solid darken(#e6e6e6, 30%);
+  }
+  .nav > .nav-links {
+    position: absolute;
+    display: block;
+    width: 100%;
+    z-index: 30000;
+    background-color: #333;
+    height: 0;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 3.125em;
+    left: 0;
+  }
+  .nav > .nav-links > a {
+    display: block;
+    width: 100%;
+  }
+  .nav > #nav-check:not(:checked) ~ .nav-links {
+    height: 0;
+  }
+  .nav > #nav-check:checked ~ .nav-links {
+    height: calc(100vh - 3.125em);
+    overflow-y: auto;
+  }
+}
+
+.container {
+  width: 100%;
+  padding: 0;
+}
+
+
+.galleryText {
+  display: block;
+  font-size: 1.0em;
+  background-color: #fff;
+  padding: 1.250em;
+  margin: 0 auto;
+}
+
+.colophon {
+  display: none;
+  height: auto;
+
+  text-align: center;
+  margin-top: 1.250em;
+  p {
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.0em;
+    color: #000;
+  }
+}
+
+
+/* Approximately the size of an iPad 768px */
+@supports (grid-area: auto) {
+  @media screen and (min-width: 48em) {
+    .site {
+      display: grid;
+      grid-template-columns: 30em 1fr;
+      grid-template-areas:
+				"nav nav"
+				"main sidebar"
+				"footer footer";
+      justify-content: center;
+    }
+    .nav {
+      grid-area: nav;
+      display: flex;
+      justify-content: space-between;
+    }
+    .nav-title {
+      display: inline-block;
+    }
+
+    img {
+      pointer-events: all;
+    }
+
+    .sidebar {
+      grid-area: sidebar;
+      justify-content: center;
+      padding: 1.250em 0;
+      margin: 1.250em auto;
+    }
+
+    .cards {
+      display: grid;
+      width: 130%;
+      margin-top: 1.250em;
+    }
+
+    .cards img,
+    .caption {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .caption {
+      display: flex;
+      align-items: flex-end;
+      opacity: 0;
+    }
+
+    a:focus .caption,
+    a:hover .caption {
+      background: hsla(246, 40%, 30%, .6);
+      opacity: 1;
+    }
+
+
+    /* This allows the amount of columns to be set to 6 with each section taking up a single equal fraction. It also sets the grid row height to interchange between 100px and 300px automatically. Grid-auto-flow attempts to fill any wholes created from spanning.*/
+    .container {
+      grid-area: main;
+      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: auto;
+      grid-gap: 0.625em;
+      grid-auto-flow: dense;
+      margin-top: 1.250em;
+    }
+
+    .gallery-item {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .gallery-item .images {
+      width: 12.8125em;
+      height: 8.5625em;
+      overflow: hidden
+    }
+
+    /* object-fit allows the element to re-size itself. object-position sets the element to focus on the center of the image instead of the default top left*/
+    .gallery-item .images img {
+      width: 12.8125em;
+      height: 8.5625em;
+      object-fit: cover;
+      object-position: 50% 50%;
+      cursor: pointer;
+      transition: .5s ease-in-out;
+    }
+
+    .gallery-item:hover .images img {
+      overflow: hidden;
+    }
+
+    .gallery-item .title {
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 4;
+      transistion: .3s ease-in-out;
+      -webkit-backdrop-filter: blur(5px) saturate(1.8);
+      backdrop-filter: blur(5px) saturate(1.8);
+      max-width: 80%;
+    }
+
+    .gallery-item .title .pictureHeading {
+      color: #fff;
+      font-size: 0.8em;
+      z-index: 5;
+    }
+
+    .gallery-item:hover .title {
+      opacity: 1;
+      animation: move-down .3s linear;
+      padding: 1em;
+      width: 100%;
+    }
+
+    /* grid-column allows an element to span however many  columns you designate, in this case it is 3 for all elements with the w-3 class. This is helpful for a dynamic grid*/
+    .w-3 {
+      grid-column: span 3
+    }
+
+    .w-2 {
+      grid-column: span 2
+    }
+
+    .w-1 {
+      grid-column: span 1
+    }
+
+    .w-4 {
+      grid-column: span 4
+    }
+
+    .w-5 {
+      grid-column: span 5
+    }
+
+    .w-6 {
+      grid-column: span 6
+    }
+
+    /*  grid-row allows an element to span however many  rows you designate, in this case it is 3 for all elements with the h-3 class. */
+    .h-3 {
+      grid-row: span 3
+    }
+
+    .h-1 {
+      grid-row: span 1
+    }
+    .h-2 {
+      grid-row: span 2
+    }
+    .h-4 {
+      grid-row: span 4
+    }
+    .h-5 {
+      grid-row: span 5
+    }
+    .h-6 {
+      grid-row: span 6
+    }
+
+
+    .active {
+      grid-area: main;
+      display: grid;
+
+      grid-template-columns: minmax(40em, 50em) fit-content(1fr);
+      grid-template-areas:
+				"lightboxImage lightboxText"
+                "lightboxExif lightboxText";;
+      justify-content: center;
+
+      margin-top: 1.250em;
+      z-index: 2000;
+    }
+
+    .galleryImage {
+      grid-area: lightboxImage;
+
+      margin: auto;
+    }
+
+    .galleryExif {
+      grid-area: lightboxExif;
+      display: flex;
+      justify-content: center;
+    }
+
+    .galleryText {
+      grid-area: lightboxText;
+    }
+
+    .colophon {
+      grid-area: footer;
+      display: block;
+    }
+
+  }
+}
+
+/* Approximately the size of a 1248px large display monitor */
+@supports (grid-area: auto) {
+  @media screen and (min-width: 78em) {
+    .name-website {
+      display: block;
+    }
+    .site {
+      display: grid;
+      grid-template-columns: 78em;
+      grid-template-areas:
+				"nav"
+				"main"
+                "sidebar"
+				"footer";
+      column-gap: 1.250em;
+      justify-content: center;
+    }
+
+    .main_container {
+      grid-area: main;
+      display: grid;
+      grid-template-columns: 58em 1fr;
+      grid-template-areas: "home_main home_sidebar";
+      .home_article {
+        grid-area: home_main;
+        h1 {
+          font-family: Georgia, serif;
+          font-weight: normal;
+          font-size: 1.8em;
+          color: darken(#e6e6e6, 60%);
+        }
+        p {
+          font-family: Helvetica, Arial, sans-serif;
+          font-weight: normal;
+          font-size: 1.2em;
+          line-height: 1.5;
+          color: darken(#e6e6e6, 60%);
+        }
+        padding: 0 1.250em;
+      }
+
+      .home_sidebar {
+        grid-area: home_sidebar;
+      }
+
+    }
+  }
+}
+
+
+/* animation instructions for move-down in text */
+@keyframes move-down {
+  0% {
+    top: 10%;
+  }
+  50% {
+    top: 35%
+  }
+  100% {
+    top: 50%
+  }
+}
+
+/* pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding: 0.625em;
+}
+
+.pagination .three-dots {
+  color: #fff;
+  font-size: 1.4em;
+  font-weight: bold;
+  margin: 0.313em 0.500em 0;
+}
+
+.pagination a {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1.4em;
+  color: #fff;
+  text-decoration: none;
+  padding-left: 0.313em;
+}
+
+.pagination a.selected {
+  font-weight: bolder;
+  color: #fff;
+  padding-left: 0.313em;
+}
+

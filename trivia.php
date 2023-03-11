@@ -9,7 +9,10 @@ require_once "vendor/autoload.php";
  */
 
 use FanOfLEGO\TriviaDatabaseOBJ;
-
+try {
+    $today = new DateTime("Now", new DateTimeZone("America/Detroit"));
+} catch (Exception $e) {
+}
 
 ?>
 <!doctype html>
@@ -20,12 +23,32 @@ use FanOfLEGO\TriviaDatabaseOBJ;
           content="width=device-width, user-scalable=yes, initial-scale=1.0">
     <title>Coolest Trivia Around</title>
     <link rel="stylesheet" media="all" href="assets/css/trivia.css">
+    <style>
+
+        #headerStyle {
+            display:flex;
+            justify-content: space-between;
+            background-color: #fff;
+            padding: 0.625em;
+        }
+        #timerStyle {
+            color: #4CAF50;
+        }
+        #score {
+            color: #4CAF50;
+        }
+        #percent {
+            color: #4CAF50;
+        }
+
+    </style>
 </head>
 <body class="site">
-<header class="headerStyle">
-</header>
 <?php include_once 'assets/includes/inc.navigation.php'; ?>
 <main id="content" class="main">
+    <div id="openingScreen">
+        <img src="assets/images/img-opening-001.jpg" alt="trivia opening graphic">
+    </div>
     <div id="quiz" class="displayMessage" data-username="">
         <div class="triviaContainer" data-records=" ">
             <div id="mainGame">
@@ -57,9 +80,24 @@ use FanOfLEGO\TriviaDatabaseOBJ;
         </ul>
     </nav>
     <div id="headerStyle" data-user="">
+        <p id="timerStyle">Time Left : <span id="clock">25</span></p>
         <p id="score">Points: 0</p>
         <p id="percent">100% Correct</p>
     </div>
+    <table id="scoreboard" class="styled-table">
+        <thead>
+        <tr class="tableTitle">
+            <th colspan="2">High Scores - <?= $today->format("F j, Y") ?></th>
+        </tr>
+        <tr class="subTitle">
+            <th>Name</th>
+            <th>Points</th>
+        </tr>
+        </thead>
+        <tbody class="anchor">
+
+        </tbody>
+    </table
 </aside>
 <?php include_once 'assets/includes/inc.footer.php'; ?>
 <script src="assets/js/trivia.js"></script>

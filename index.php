@@ -41,17 +41,13 @@ $pagination = new Pagination($current_page, $per_page, $total_count);
 
 /* Grab the offset (page) location from using the offset method */
 $offset = $pagination->offset();
-//echo "<pre>" . print_r($offset, 1) . "</pre>";
-//die();
+
 /*
  * Grab the data from the CMS class method *static*
  * and put the data into an array variable.
  */
 $cms = CMS::page($per_page, $offset);
-//echo "<pre>" . print_r($pagination, 1) . "</pre>";
-//die();
-//echo "<pre>" . print_r($cms, 1) . "</pre>";
-//die();
+
 
 ?>
 <!doctype html>

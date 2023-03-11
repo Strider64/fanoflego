@@ -17,6 +17,8 @@
             echo '<a href="blog.php">Blog</a>';
             echo '<a href="newQuestions.php">New Questions</a>';
             echo '<a href="modifyTrivia.php">Edit Questions</a>';
+            echo '<a href="createGallery.php">Insert Images</a>';
+            echo '<a href="gallery.php">Gallery</a>';
         }
 
         ?>
