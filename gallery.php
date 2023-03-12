@@ -4,8 +4,8 @@
  * The Photo Tech Guru
  * Created by John R. Pepp
  * Date Created: July, 12, 2021
- * Last Revision: November 1, 2022 @ 7:45am
- * Version: 4.00 ßeta
+ * Last Revision: March 11, 2023 @ 7:00 pm
+ * Version: 5.00 ßeta
  * Big Time Credit goes to
  * Annastasshia for the gallery design
  * https://codepen.io/annastasshia
